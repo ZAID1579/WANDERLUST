@@ -1,0 +1,148 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+    #filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+        align-items: center;
+    }
+
+    .filter {
+        text-align: center;
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    .filter:hover {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    .filter i {
+        font-size: 1.5rem;
+    }
+
+    .filter p {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+    }
+</style>
+
+<div id="filters">
+    <div class="filter" data-filter="trending">
+        <div><i class="fa-solid fa-fire"></i></div>
+        <p>Trending</p>
+    </div>
+
+    <div class="filter" data-filter="rooms">
+        <div><i class="fa-solid fa-bed"></i></div>
+        <p>Rooms</p>
+    </div>
+
+    <div class="filter" data-filter="cities">
+        <div><i class="fa-solid fa-city"></i></div>
+        <p>Cities</p>
+    </div>
+
+    <div class="filter" data-filter="beach">
+        <div><i class="fa-solid fa-umbrella-beach"></i></div>
+        <p>Beach</p>
+    </div>
+
+    <div class="filter" data-filter="cabin">
+        <div><i class="fa-solid fa-house"></i></div>
+        <p>Cabin</p>
+    </div>
+
+    <div class="filter" data-filter="mountains">
+        <div><i class="fa-solid fa-mountain"></i></div>
+        <p>Mountains</p>
+    </div>
+
+    <div class="filter" data-filter="castles">
+        <div><i class="fa-solid fa-chess-rook"></i></div>
+        <p>Castles</p>
+    </div>
+
+    <div class="filter" data-filter="pools">
+        <div><i class="fa-solid fa-water-ladder"></i></div>
+        <p>Amazing Pools</p>
+    </div>
+
+    <div class="filter" data-filter="camping">
+        <div><i class="fa-solid fa-tent"></i></div>
+        <p>Camping</p>
+    </div>
+
+    <div class="filter" data-filter="farms">
+        <div><i class="fa-solid fa-cow"></i></div>
+        <p>Farms</p>
+    </div>
+
+    <div class="filter" data-filter="igloo">
+        <div><i class="fa-solid fa-snowflake"></i></div>
+        <p>Igloo</p>
+    </div>
+
+    <div class="filter" data-filter="all">
+        <div><i class="fa-solid fa-globe"></i></div>
+        <p>All</p>
+    </div>
+</div>
+
+<a href="/listings/new" class="btn btn-dark mb-3 mt-3">
+    Create New Listing
+</a>
+
+<div class="row">
+    <% for(let listing of alllistings) { %>
+        <div 
+            class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 listing-item"
+            data-category="<%= listing.category ? listing.category.toLowerCase() : '' %>"
+        >
+            <a href="/listings/<%= listing._id %>"
+               class="text-decoration-none text-dark">
+
+                <div class="card h-100 listing-card">
+                    <img
+                        src="<%= listing.image.url %>"
+                        class="card-img-top"
+                        alt="listing image"
+                    >
+
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b><%= listing.title %></b><br>
+                            ₹<%= listing.price.toLocaleString("en-IN") %>/night
+                        </p>
+                    </div>
+                </div>
+
+            </a>
+        </div>
+    <% } %>
+</div>
+
+<script>
+    const filters = document.querySelectorAll(".filter");
+    const listings = document.querySelectorAll(".listing-item");
+
+    filters.forEach((filter) => {
+        filter.addEventListener("click", () => {
+            const selected = filter.dataset.filter;
+
+            listings.forEach((listing) => {
+                const category = listing.dataset.category;
+
+                if (selected === "all" || category === selected) {
+                    listing.style.display = "block";
+                } else {
+                    listing.style.display = "none";
+                }
+            });
+        });
+    });
+</script>

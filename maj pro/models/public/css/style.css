@@ -1,0 +1,150 @@
+/*body{
+    background-color: grey;
+}*/
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex:1;
+}
+.plus-jakarta-sans {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:200;
+  font-style: normal;
+}
+    .navbar{
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-solid.fa-bell{
+    color: brown;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: black !important;
+}
+
+/* Cards */
+
+.cards-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.listing-card{
+    width: 18rem;
+}
+
+.card-img-top{
+    height: 18rem;
+    object-fit: cover;
+}
+#map {
+  height: 400px;
+  width: 100%;
+  border-radius: 10px;
+  z-index: 0;
+  margin-bottom: 5rem;
+}
+.tax-toggle{
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: inline-block;
+    background: white;
+    margin-left: 2rem;
+}
+/* Footer */
+.f-info{
+    text-align: center;
+    height: 8rem;
+    background-color: lightgray;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.card-img-top{
+    height: 18rem;
+    object-fit: cover;
+}
+.f-info-socials{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.f-info-socials i{
+    font-size: 1.5rem;
+}
+
+.f-info-brand{
+    width: 100%;
+}
+
+.f-info-links{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: black;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+/*cards*/
+.listing-card{
+    border:none !important;
+    margin-bottom: 2rem;
+}
+.card-img-top{
+    border-radius: 1rem;
+    width:100%;
+    object-fit: cover;
+}
+.card-body{
+    padding:0%;
+}
+.card-text p{
+font-weight: 400;
+}
+.card{
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.card-img-top{
+    height: 18rem;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+.add-btn{
+    background-color: brown !important;
+}
+.edit-btn{
+    background-color: brown !important;
+}
+/* show page*/
+.show-img{
+    height:30vh;
+}
