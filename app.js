@@ -109,10 +109,10 @@ app.get("/demouser",async(req,res)=>{
   let registeredUser=await User.register(fakeUser,"helloworld");
   res.send(registeredUser);
 })
-// Root Route
-//app.get("/", (req, res) => {
-//  res.send("I'm root path");
-//});
+ //Root Route
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
 app.use("/listings",listingsRouter);
 app.use("/",user);
 //reviews

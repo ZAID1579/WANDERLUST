@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const data = require("./data.js");
 const Listing = require("../maj pro/models/listing.js");
 
-require("dotenv").config({ path: "../maj pro/.env" });
+require("dotenv").config({ path: "maj pro/.env" });
 
 const MONGO_URL = process.env.ATLASDB_URL;
 
@@ -10,6 +10,7 @@ main()
   .then(async () => {
     console.log("connected to DB");
     await initDB();
+    mongoose.connection.close();
   })
   .catch((err) => {
     console.log(err);
@@ -35,6 +36,4 @@ const initDB = async () => {
 
   const count = await Listing.countDocuments();
   console.log("Listings in database:", count);
-
-  mongoose.connection.close();
 };
