@@ -3,6 +3,14 @@ if (process.env.NODE_ENV !== "production") {
         path: "./maj pro/.env"
     });
 }
+
+// ADD THESE TWO LINES HERE
+console.log("ATLASDB_URL =", process.env.ATLASDB_URL);
+console.log("SECRET =", process.env.SECRET);
+
+
+const express = require("express");
+
 const sessionOptions = {
   secret: process.env.SECRET ,
   resave: false,
@@ -13,7 +21,7 @@ const sessionOptions = {
     httpOnly: true,
   },
 };
-const express = require("express");
+
 const app = express();
 const mongoose = require("mongoose");
 const Listing = require("./maj pro/models/listing.js");
